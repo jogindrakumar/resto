@@ -125,7 +125,7 @@
 
                     </div>
                     <div class="col-md-12 d-flex align-items-center">
-                        <p class="mx-auto text-center mb-0">Copyright 2019. All Right Reserved. Design by <a href="" target="_blank">Jogindra kumar</a></p>
+                        <p class="mx-auto text-center mb-0">Copyright 2019. All Right Reserved. <a href="" target="_blank">Jogindra kumar</a></p>
                     </div>
 
                 </div>
