@@ -23,31 +23,28 @@ class SpecialDishController extends Controller
     public function SpecialDishStore(Request $request){
         $request->validate([
             
-        'project_name'              => 'required',
-        'project_tech'              => 'required',
-        'project_img'               => 'required',
+        'dish_name_first'   => 'required',
+        'desp'              => 'required',
+        'img'              => 'required',
+        'price'             => 'required',
         ]);
 
-        $image = $request->file('project_img');
+        $image = $request->file('img');
         $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-        Image::make($image)->resize(800,801)->save('upload/specialdish/'.$name_gen);
+        Image::make($image)->resize(400,500)->save('upload/specialdish/'.$name_gen);
         $save_url = 'upload/specialdish/'.$name_gen;
 
-        $model_image = $request->file('model_img');
-        $name_gen = hexdec(uniqid()).'.'.$model_image->getClientOriginalExtension();
-        Image::make($model_image)->resize(1050,700)->save('upload/specialdish/model/'.$name_gen);
-        $save_model_url = 'upload/specialdish/model/'.$name_gen;
-
+       
         SpecialDish::insert([
 
-        'project_name'              => $request->project_name,
-        'project_tech'              => $request->project_tech,
-        'project_img'              =>  $save_url,
-        'model_img'              =>  $save_model_url,
-        'project_link'              => $request->project_link,   
+        'dish_name_first'              => $request->dish_name_first,
+        'dish_name_second'              => $request->dish_name_second,
+        'desp'                          =>  $request->desp,
+        'img'                           =>  $save_url,
+        'price'                         => $request->price,   
         ]);
          $notification = array(
-            'message' => 'SpecialDish Inserted Successfully',
+            'message' => 'Special Dish Inserted Successfully',
             'alert-type' => 'success'
                 );
         return redirect()->route('all.specialdish')->with($notification);
