@@ -53,35 +53,31 @@ class SpecialDishController extends Controller
     public function SpecialDishEdit($id){
 
         
-        $SpecialDishs = SpecialDish::findOrFail($id);
-        return view('backend.specialdish.specialdish_edit',compact('specialdish'));
+        $specialdishs = SpecialDish::findOrFail($id);
+        return view('backend.specialdish.specialdish_edit',compact('specialdishs'));
 
     }
 
     public function SpecialDishUpdate(Request $request,$id){
 
          $old_image = $request->old_image;
-         $old_model_image = $request->old_model_image;
+        
 
 
-         if($request->file('project_img') && $request->file('model_img') ){
+         if($request->file('img')){
 
             unlink($old_image); 
-                $image = $request->file('project_img');
+                $image = $request->file('img');
                 $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
                 Image::make($image)->resize(800,801)->save('upload/specialdish/'.$name_gen);
                 $save_url = 'upload/specialdish/'.$name_gen;
 
-                unlink($old_model_image);
-                $model_image = $request->file('model_img');
-                $name_gen = hexdec(uniqid()).'.'.$model_image->getClientOriginalExtension();
-                Image::make($model_image)->resize(1050,700)->save('upload/specialdish/model/'.$name_gen);
-                $save_model_url = 'upload/specialdish/model/'.$name_gen;
+              
 
         SpecialDish::FindOrFail($id)->update([
 
-        'project_img'              =>   $save_url,
-        'model_img'              =>  $save_model_url, 
+       'img'    =>  $save_url,
+       
        
         ]);
          $notification = array(
@@ -94,9 +90,10 @@ class SpecialDishController extends Controller
             
         SpecialDish::FindOrFail($id)->update([
 
-        'project_name'              => $request->project_name,
-        'project_tech'              => $request->project_tech,
-        'project_link'              => $request->project_link,   
+        'dish_name_first'              => $request->dish_name_first,
+        'dish_name_second'              => $request->dish_name_second,
+        'desp'                          =>  $request->desp,
+        'price'                         => $request->price,  
        
         ]);
          $notification = array(
