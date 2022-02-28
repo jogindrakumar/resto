@@ -41,13 +41,14 @@
           <a href="#">
             
             <i data-feather="sliders"></i>
-            <span>Slider</span>
+            <span>Special Dishes</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href=""><i class="ti-more"></i>View Slider</a></li>
+            <li><a href="{{route('all.specialdish')}}"><i class="ti-more"></i>View</a></li>
+            <li><a href="{{route('add.specialdish')}}"><i class="ti-plus"></i>Add</a></li>
             
           </ul>
         </li> 
