@@ -69,7 +69,7 @@ class SpecialDishController extends Controller
             unlink($old_image); 
                 $image = $request->file('img');
                 $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-                Image::make($image)->resize(800,801)->save('upload/specialdish/'.$name_gen);
+                Image::make($image)->resize(400,500)->save('upload/specialdish/'.$name_gen);
                 $save_url = 'upload/specialdish/'.$name_gen;
 
               
@@ -81,7 +81,7 @@ class SpecialDishController extends Controller
        
         ]);
          $notification = array(
-            'message' => 'SpecialDish Updated Successfully',
+            'message' => 'Special Dish Updated Successfully',
             'alert-type' => 'success'
                 );
         return redirect()->route('all.specialdish')->with($notification);

@@ -7,7 +7,7 @@
       @include('frontend.body.special_dishes')
         <!-- End of Special Dishes Section -->
         <!-- Menu Section -->
-        @include('frontend.body.navbar')
+        @include('frontend.body.menu')
         <!-- End of menu Section -->
         <!-- Testimonial Section-->
       @include('frontend.body.testimonial')
