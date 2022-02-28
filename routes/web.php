@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\AdminProfileController;
+use App\Http\Controllers\Backend\SpecialDishController;
 use App\Models\Admin;
+use App\Models\SpecialDish;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,13 +38,24 @@ Route::group(['prefix' => 'admin', 'middleware'=>['admin:admin']],function(){
 });
 
  //Admin All routes
-
+Route::middleware(['auth:admin'])->group(function () {
  Route::get('/admin/logout',[AdminController::class,'destroy'])->name('admin.logout');
  Route::get('/admin/profile',[AdminProfileController::class,'AdminProfile'])->name('admin.profile');
  Route::get('/admin/profile/edit',[AdminProfileController::class,'AdminProfileEdit'])->name('admin.profile.edit');
  Route::post('/admin/profile/store',[AdminProfileController::class,'AdminProfileStore'])->name('admin.profile.store');
  Route::get('/admin/change/password',[AdminProfileController::class,'AdminChangePassword'])->name('admin.change.password');
  Route::post('/admin/update/password',[AdminProfileController::class,'AdminUpdatePassword'])->name('update.change.password');
+  });
+
+Route::prefix('specialdish')->middleware(['auth:admin'])->group(function(){
+Route::get('/view',[SpecialDishController ::class,'SpecialDishView'])->name('all.specialdish');
+Route::get('/add',[SpecialDishController ::class,'SpecialDishAdd'])->name('add.specialdish');
+Route::post('/store',[SpecialDishController ::class,'SpecialDishStore'])->name('specialdish.store');
+Route::get('/edit/{id}',[SpecialDishController::class,'SpecialDishEdit'])->name('specialdish.edit');
+Route::post('/update/{id}',[SpecialDishController ::class,'SpecialDishUpdate'])->name('specialdish.update');
+Route::get('/delete/{id}',[SpecialDishController ::class,'SpecialDishDelete'])->name('specialdish.delete');
+
+ });
 
  
 Route::middleware(['auth:sanctum,admin', 'verified'])->get('/admin/dashboard', function () {
