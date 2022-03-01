@@ -55,6 +55,21 @@
          <li class="treeview">
           <a href="#">
             
+            <i data-feather="sliders"></i>
+            <span>Menu</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{route('all.menucategory')}}"><i class="ti-more"></i>Manage Category</a></li>
+            
+            
+          </ul>
+        </li> 
+         <li class="treeview">
+          <a href="#">
+            
             <i data-feather="bell"></i>
             <span>What We Do</span>
             <span class="pull-right-container">
