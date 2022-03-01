@@ -63,6 +63,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="{{route('all.menucategory')}}"><i class="ti-more"></i>Manage Category</a></li>
+            <li><a href="{{route('all.menu')}}"><i class="ti-more"></i>Manage Menu</a></li>
             
             
           </ul>

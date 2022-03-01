@@ -5,8 +5,10 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\AdminProfileController;
 use App\Http\Controllers\Backend\SpecialDishController;
 use App\Http\Controllers\Backend\MenuCategoryController;
+use App\Http\Controllers\Backend\MenuController;
 use App\Models\Admin;
 use App\Models\MenuCategory;
+use App\Models\Menu;
 use App\Models\SpecialDish;
 
 /*
@@ -58,13 +60,26 @@ Route::post('/update/{id}',[SpecialDishController ::class,'SpecialDishUpdate'])-
 Route::get('/delete/{id}',[SpecialDishController ::class,'SpecialDishDelete'])->name('specialdish.delete');
 
  });
+
+
+// All Menu Category  Routes
+
  Route::prefix('menucategory')->middleware(['auth:admin'])->group(function(){
 Route::get('/view',[MenuCategoryController::class,'MenuCategoryView'])->name('all.menucategory');
-
 Route::post('/store',[MenuCategoryController ::class,'MenuCategoryStore'])->name('menucategory.store');
 Route::get('/edit/{id}',[MenuCategoryController::class,'MenuCategoryEdit'])->name('menucategory.edit');
 Route::post('/update/{id}',[MenuCategoryController ::class,'MenuCategoryUpdate'])->name('menucategory.update');
 Route::get('/delete/{id}',[MenuCategoryController ::class,'MenuCategoryDelete'])->name('menucategory.delete');
+
+ });
+
+ // All Menu Routes
+Route::prefix('menu')->middleware(['auth:admin'])->group(function(){
+Route::get('/view',[MenuController::class,'MenuView'])->name('all.menu');
+Route::post('/store',[MenuController ::class,'MenuStore'])->name('menu.store');
+Route::get('/edit/{id}',[MenuController::class,'MenuEdit'])->name('menu.edit');
+Route::post('/update/{id}',[MenuController ::class,'MenuUpdate'])->name('menu.update');
+Route::get('/delete/{id}',[MenuController ::class,'MenuDelete'])->name('menu.delete');
 
  });
 
