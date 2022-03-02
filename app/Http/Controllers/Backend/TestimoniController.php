@@ -31,7 +31,7 @@ class TestimoniController extends Controller
        
         ]);
          $notification = array(
-            'message' => 'Category Inserted Successfully',
+            'message' => 'Testimonial Inserted Successfully',
             'alert-type' => 'success'
                 );
         return redirect()->route('all.testimoni')->with($notification);
@@ -41,7 +41,7 @@ class TestimoniController extends Controller
 
         
         $testimonis = Testimoni::findOrFail($id);
-        return view('backend.testimoni.testimonicategory_edit',compact('testimonis'));
+        return view('backend.testimoni.testimoni_edit',compact('testimonis'));
 
     }
 
@@ -72,7 +72,7 @@ class TestimoniController extends Controller
        Testimoni::FindOrFail($id)->delete();
 
          $notification = array(
-                        'message' => 'Category Delete Successfully',
+                        'message' => 'Testimonial Delete Successfully',
                         'alert-type' => 'info'
                             );
                     return redirect()->back()->with($notification);
