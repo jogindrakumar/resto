@@ -86,7 +86,7 @@ class SpecialRecipeController extends Controller
             
         SpecialRecipe::FindOrFail($id)->update([
 
-        'name'              => $request->name,
+        'name'   => $request->name,
        
        
         ]);
