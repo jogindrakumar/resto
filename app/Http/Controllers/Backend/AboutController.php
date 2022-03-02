@@ -34,8 +34,8 @@ class AboutController extends Controller
        
         About::insert([
 
-        'heading'              => $request->heading,
-        'desp'              => $request->desp,
+        'heading'          => $request->heading,
+        'desp'             => $request->desp,
         'img'              =>  $save_url,
         ]);
          $notification = array(
