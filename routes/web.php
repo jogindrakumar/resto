@@ -6,10 +6,12 @@ use App\Http\Controllers\Backend\AdminProfileController;
 use App\Http\Controllers\Backend\SpecialDishController;
 use App\Http\Controllers\Backend\MenuCategoryController;
 use App\Http\Controllers\Backend\MenuController;
+use App\Http\Controllers\Backend\SpecialRecipeController;
 use App\Models\Admin;
 use App\Models\MenuCategory;
 use App\Models\Menu;
 use App\Models\SpecialDish;
+use App\Models\SpecialRecipe;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,6 +84,16 @@ Route::post('/update/{id}',[MenuController ::class,'MenuUpdate'])->name('menu.up
 Route::get('/delete/{id}',[MenuController ::class,'MenuDelete'])->name('menu.delete');
 
  });
+  // All Special Recipes
+Route::prefix('specialrecipe')->middleware(['auth:admin'])->group(function(){
+Route::get('/view',[SpecialRecipeController::class,'SpecialRecipeView'])->name('all.specialrecipe');
+Route::post('/store',[SpecialRecipeController ::class,'SpecialRecipeStore'])->name('specialrecipe.store');
+Route::get('/edit/{id}',[SpecialRecipeController::class,'SpecialRecipeEdit'])->name('specialrecipe.edit');
+Route::post('/update/{id}',[SpecialRecipeController ::class,'SpecialRecipeUpdate'])->name('specialrecipe.update');
+Route::get('/delete/{id}',[SpecialRecipeController ::class,'SpecialRecipeDelete'])->name('specialrecipe.delete');
+
+ });
+
 
  
 Route::middleware(['auth:sanctum,admin', 'verified'])->get('/admin/dashboard', function () {

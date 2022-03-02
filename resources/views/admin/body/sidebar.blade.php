@@ -68,6 +68,22 @@
             
           </ul>
         </li> 
+        <li class="treeview">
+          <a href="#">
+            
+            <i data-feather="sliders"></i>
+            <span>Special Recipes</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{route('all.specialrecipe')}}"><i class="ti-more"></i>Manage Special Recipes</a></li>
+           
+            
+            
+          </ul>
+        </li> 
          <li class="treeview">
           <a href="#">
             
