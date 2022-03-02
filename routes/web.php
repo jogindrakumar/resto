@@ -7,11 +7,13 @@ use App\Http\Controllers\Backend\SpecialDishController;
 use App\Http\Controllers\Backend\MenuCategoryController;
 use App\Http\Controllers\Backend\MenuController;
 use App\Http\Controllers\Backend\SpecialRecipeController;
+use App\Http\Controllers\Backend\TestimoniController;
 use App\Models\Admin;
 use App\Models\MenuCategory;
 use App\Models\Menu;
 use App\Models\SpecialDish;
 use App\Models\SpecialRecipe;
+use App\Models\Testimoni;
 
 /*
 |--------------------------------------------------------------------------
@@ -94,6 +96,15 @@ Route::get('/delete/{id}',[SpecialRecipeController ::class,'SpecialRecipeDelete'
 
  });
 
+  // All Testimonial 
+Route::prefix('testimonial')->middleware(['auth:admin'])->group(function(){
+Route::get('/view',[TestimoniController::class,'TestimoniView'])->name('all.testimoni');
+Route::post('/store',[TestimoniController ::class,'TestimoniStore'])->name('testimoni.store');
+Route::get('/edit/{id}',[TestimoniController::class,'TestimoniEdit'])->name('testimoni.edit');
+Route::post('/update/{id}',[TestimoniController ::class,'TestimoniUpdate'])->name('testimoni.update');
+Route::get('/delete/{id}',[TestimoniController::class,'TestimoniDelete'])->name('testimoni.delete');
+
+ });
 
  
 Route::middleware(['auth:sanctum,admin', 'verified'])->get('/admin/dashboard', function () {

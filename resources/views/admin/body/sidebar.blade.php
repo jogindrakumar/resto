@@ -84,6 +84,23 @@
             
           </ul>
         </li> 
+
+         <li class="treeview">
+          <a href="#">
+            
+            <i data-feather="sliders"></i>
+            <span>Testimonial</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{route('all.testimoni')}}"><i class="ti-more"></i>Manage Testimonial</a></li>
+           
+            
+            
+          </ul>
+        </li> 
          <li class="treeview">
           <a href="#">
             
