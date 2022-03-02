@@ -42,7 +42,7 @@
 <tr>
 	
 	<td>{{$menu->menu_name}}</td>
-	<td>{{$menu->category_id}}</td>
+	<td>{{$menu['menucategory']['category_name']}}</td>
 	<td>{{$menu->menu_price}}</td>
 	<td><img src="{{asset($menu->menu_image)}}" alt="" style="height:50px;width:50px;"></td>
 	
