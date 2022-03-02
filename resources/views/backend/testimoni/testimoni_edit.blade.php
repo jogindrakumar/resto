@@ -17,7 +17,7 @@
 
 			 <div class="box">
 				<div class="box-header with-border">
-				  <h3 class="box-title">Add Testimonial </h3>
+				  <h3 class="box-title">Edit Testimonial </h3>
 				</div>
         <div class="box-body">
             <div class="table-responsive">
