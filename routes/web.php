@@ -9,8 +9,10 @@ use App\Http\Controllers\Backend\AboutController;
 use App\Http\Controllers\Backend\MenuController;
 use App\Http\Controllers\Backend\SpecialRecipeController;
 use App\Http\Controllers\Backend\TestimoniController;
+use App\Http\Controllers\Backend\TeamController;
 use App\Models\Admin;
 use App\Models\About;
+use App\Models\Team;
 use App\Models\MenuCategory;
 use App\Models\Menu;
 use App\Models\SpecialDish;
@@ -104,6 +106,15 @@ Route::post('/store',[AboutController ::class,'AboutStore'])->name('about.store'
 Route::get('/edit/{id}',[AboutController::class,'AboutEdit'])->name('about.edit');
 Route::post('/update/{id}',[AboutController ::class,'AboutUpdate'])->name('about.update');
 Route::get('/delete/{id}',[AboutController ::class,'AboutDelete'])->name('about.delete');
+
+ });
+ // All TEAM
+Route::prefix('team')->middleware(['auth:admin'])->group(function(){
+Route::get('/view',[TeamController::class,'TeamView'])->name('all.team');
+Route::post('/store',[TeamController ::class,'TeamStore'])->name('team.store');
+Route::get('/edit/{id}',[TeamController::class,'TeamEdit'])->name('team.edit');
+Route::post('/update/{id}',[TeamController ::class,'TeamUpdate'])->name('team.update');
+Route::get('/delete/{id}',[TeamController ::class,'TeamDelete'])->name('team.delete');
 
  });
 
