@@ -50,7 +50,7 @@ class AboutController extends Controller
     public function AboutEdit($id){
 
         
-        $Abouts = About::findOrFail($id);
+        $abouts = About::findOrFail($id);
         return view('backend.about.about_edit',compact('abouts'));
 
     }
@@ -107,7 +107,7 @@ class AboutController extends Controller
 
     public function AboutDelete($id){
         $old_img = About::findOrFail($id);
-    	$img = $old_img->About_image;
+    	$img = $old_img->img;
     	unlink($img);
        
        About::FindOrFail($id)->delete();
