@@ -5,10 +5,12 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\AdminProfileController;
 use App\Http\Controllers\Backend\SpecialDishController;
 use App\Http\Controllers\Backend\MenuCategoryController;
+use App\Http\Controllers\Backend\AboutController;
 use App\Http\Controllers\Backend\MenuController;
 use App\Http\Controllers\Backend\SpecialRecipeController;
 use App\Http\Controllers\Backend\TestimoniController;
 use App\Models\Admin;
+use App\Models\About;
 use App\Models\MenuCategory;
 use App\Models\Menu;
 use App\Models\SpecialDish;
@@ -93,6 +95,15 @@ Route::post('/store',[SpecialRecipeController ::class,'SpecialRecipeStore'])->na
 Route::get('/edit/{id}',[SpecialRecipeController::class,'SpecialRecipeEdit'])->name('specialrecipe.edit');
 Route::post('/update/{id}',[SpecialRecipeController ::class,'SpecialRecipeUpdate'])->name('specialrecipe.update');
 Route::get('/delete/{id}',[SpecialRecipeController ::class,'SpecialRecipeDelete'])->name('specialrecipe.delete');
+
+ });
+  // All About 
+Route::prefix('about')->middleware(['auth:admin'])->group(function(){
+Route::get('/view',[AboutController::class,'AboutView'])->name('all.about');
+Route::post('/store',[AboutController ::class,'AboutStore'])->name('about.store');
+Route::get('/edit/{id}',[AboutController::class,'AboutEdit'])->name('about.edit');
+Route::post('/update/{id}',[AboutController ::class,'AboutUpdate'])->name('about.update');
+Route::get('/delete/{id}',[AboutController ::class,'AboutDelete'])->name('about.delete');
 
  });
 
