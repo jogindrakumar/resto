@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\MenuController;
 use App\Http\Controllers\Backend\SpecialRecipeController;
 use App\Http\Controllers\Backend\TestimoniController;
 use App\Http\Controllers\Backend\TeamController;
+use App\Http\Controllers\Backend\HeroController;
 use App\Models\Admin;
 use App\Models\About;
 use App\Models\Team;
@@ -18,6 +19,7 @@ use App\Models\Menu;
 use App\Models\SpecialDish;
 use App\Models\SpecialRecipe;
 use App\Models\Testimoni;
+use App\Models\Hero;
 
 /*
 |--------------------------------------------------------------------------
@@ -125,6 +127,15 @@ Route::post('/store',[TestimoniController ::class,'TestimoniStore'])->name('test
 Route::get('/edit/{id}',[TestimoniController::class,'TestimoniEdit'])->name('testimoni.edit');
 Route::post('/update/{id}',[TestimoniController ::class,'TestimoniUpdate'])->name('testimoni.update');
 Route::get('/delete/{id}',[TestimoniController::class,'TestimoniDelete'])->name('testimoni.delete');
+
+ });
+  // All Hero
+Route::prefix('hero')->middleware(['auth:admin'])->group(function(){
+Route::get('/view',[HeroController::class,'HeroView'])->name('all.hero');
+Route::post('/store',[HeroController ::class,'HeroStore'])->name('hero.store');
+Route::get('/edit/{id}',[HeroController::class,'HeroEdit'])->name('hero.edit');
+Route::post('/update/{id}',[HeroController ::class,'HeroUpdate'])->name('hero.update');
+Route::get('/delete/{id}',[HeroController::class,'HeroDelete'])->name('hero.delete');
 
  });
 

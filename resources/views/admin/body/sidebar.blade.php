@@ -23,6 +23,21 @@
 			<span>Dashboard</span>
           </a>
         </li>  
+
+
+        <li class="treeview">
+          <a href="#">
+            
+            <i data-feather="sliders"></i>
+            <span>Hero Image </span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{route('all.hero')}}"><i class="ti-more"></i>Manage Hero</a></li>
+          </ul>
+        </li> 
 		
       <li class="treeview">
           <a href="#">
