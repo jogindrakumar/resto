@@ -39,7 +39,7 @@
  @foreach ($heros as $hero)                         
 <tr>
 	
-	<td><img src="{{asset($hero->img)}}" alt="" style="height:150px;width:250px;"></td>
+	<td><img src="{{asset($hero->img)}}" alt="" style="height:50px;width:50px;"></td>
 	
 	
 <td>
