@@ -78,12 +78,10 @@ class HeroController extends Controller
     }
 
     public function HeroDelete($id){
-        $old_project_img = hero::findOrFail($id);
-    	$img = $old_project_img->project_img;
+        $old_image = Hero::findOrFail($id);
+    	$img = $old_image->img;
     	unlink($img);
-        $old_model_img = hero::findOrFail($id);
-    	$model_img = $old_model_img->model_img;
-    	unlink($model_img);
+        
        Hero::FindOrFail($id)->delete();
 
          $notification = array(
